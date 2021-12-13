@@ -19,12 +19,12 @@ Route::get('/', function () {
 
 Route::get('/pessoas/nome_simples', function () {
     $pessoa = criarPessoa('Eduardo', 'Silva');
-    return view('nomeSimples', ['nome' => $pessoa->nome]);
+    return view('nome', ['nome' => $pessoa->nome], ['titulo' => 'Nome simples']);
 });
 
 Route::get('/pessoas/nome_completo', function () {
     $pessoa = criarPessoa('Matheus', 'Moreira');
-    return view('nomeCompleto', ['nome' => call_user_func($pessoa->nomeCompleto, $pessoa)]);
+    return view('nome', ['nome' => call_user_func($pessoa->nomeCompleto, $pessoa)], ['titulo' => 'Nome completo']);
 });
 
 function criarPessoa($nome, $sobrenome){
